@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class VidaDaño : MonoBehaviour
 {
-    public int Vida;
-    public int Daño;
+    public int vida;
+    public int daño;
 
-    private BoxCollider2D Ataque;
+    //public BoxCollider2D ataquePrefab;
+
+    public GameObject personaje;
+
+    //private BoxCollider2D ataque;
 
     // Start is called before the first frame update
     void Start()
@@ -18,25 +22,31 @@ public class VidaDaño : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TomaryHacerDaño();
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (gameObject.CompareTag("proyectil"))
+        {
+            if (collision.CompareTag("Enemigo")) 
+            {
+                VidaDaño personaje = collision.GetComponent<VidaDaño>();
+                if (personaje != null)
+                {
+                    TomaryHacerDaño();
+                }
+            }
+        }
     }
 
     private void TomaryHacerDaño()
     {
-        if (Ataque.isTrigger)
+        vida -= daño;
+ 
+        if (vida <= 0)
         {
-            Vida -= Daño;
+            Destroy(personaje);
         }
     }
-
-    /*
-    private void HacerDaño()
-    {
-        if (Ataque.isTrigger)
-        {
-
-        }
-
-    }
-    */
 }

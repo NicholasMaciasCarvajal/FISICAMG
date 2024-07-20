@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Atacar : MonoBehaviour
 {
@@ -62,15 +64,11 @@ public class Atacar : MonoBehaviour
 
     void LaunchProjectile()
     {
-        // Crear el proyectil en la posición del objeto actual
-        GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        // Crear el proyectil en la posición y con la rotación del objeto actual (objeto madre)
+        GameObject projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
 
-        // Obtener la posición del mouse en el mundo
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0; // Asegurarse de que la posición Z sea 0 (o la misma que el objeto lanzador si es necesario)
-
-        // Calcular la dirección desde el objeto hacia el mouse
-        Vector3 direction = (mousePosition - transform.position).normalized;
+        // Obtener la dirección en la que está mirando el objeto madre
+        Vector3 direction = transform.right; 
 
         // Asignar velocidad al proyectil en la dirección calculada
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();

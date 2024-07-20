@@ -630,7 +630,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.2832189}
+  m_Offset: {x: 0, y: -0.3}
   m_Radius: 0.21678111
 --- !u!212 &1099878813
 SpriteRenderer:
@@ -745,8 +745,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e34a8f5beb0d8184fb74cd0055f35876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Vida: 15
-  "Da\xF1o": 1
+  vida: 10
+  "da\xF1o": 1
+  ataquePrefab: {fileID: 5101346653545666999, guid: da246eb777d9cd14289f6d56c67e9bc1, type: 3}
+  personaje: {fileID: 1099878808}
 --- !u!1 &1109894428
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,7 +776,7 @@ Transform:
   m_GameObject: {fileID: 1109894428}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.22, y: -0.24, z: 0}
+  m_LocalPosition: {x: 0.558, y: -0.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -793,6 +795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f11780fd9d38cbc4ab963a5286ce6fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentTransform: {fileID: 1099878809}
 --- !u!114 &1109894431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1069,8 +1072,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e34a8f5beb0d8184fb74cd0055f35876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Vida: 3
-  "Da\xF1o": 0
+  vida: 3
+  "da\xF1o": 0
+  ataquePrefab: {fileID: 5101346653545666999, guid: da246eb777d9cd14289f6d56c67e9bc1, type: 3}
+  personaje: {fileID: 1754252518}
 --- !u!1 &1754280779
 GameObject:
   m_ObjectHideFlags: 0
