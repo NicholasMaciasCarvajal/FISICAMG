@@ -7,31 +7,6 @@ using UnityEngine.UIElements;
 
 public class Atacar : MonoBehaviour
 {
-    /*private PrefabInstanceStatus Ataque;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-                foreach (GameObject obj in objectsToDestroy)
-        {
-            StartCoroutine(DestroyAfterTime(obj, lifetime));
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void Añañar()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            
-        }
-    }*/
-
     public GameObject projectilePrefab;
     public float projectileSpeed;
     public float launchInterval;

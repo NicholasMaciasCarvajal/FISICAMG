@@ -4,49 +4,61 @@ using UnityEngine;
 
 public class VidaDaño : MonoBehaviour
 {
-    public int vida;
-    public int daño;
+    /*
+    
+    public int vida; // Vida inicial del enemigo
+    public int daño; // Daño que inflige el proyectil
 
-    //public BoxCollider2D ataquePrefab;
-
-    public GameObject personaje;
-
-    //private BoxCollider2D ataque;
-
-    // Start is called before the first frame update
-    void Start()
+    public void TomarDaño(int cantidad)
     {
-
+        vida -= daño;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnTriggerEnter2D(Collider2D other)
     {
-
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (gameObject.CompareTag("proyectil"))
+        if (other.tag == "proyectil")
         {
-            if (collision.CompareTag("Enemigo")) 
+            if (other.tag == "enemigo")
             {
-                VidaDaño personaje = collision.GetComponent<VidaDaño>();
-                if (personaje != null)
+                VidaDaño enemigo = other.GetComponent<VidaDaño>();
+                if (enemigo != null)
                 {
-                    TomaryHacerDaño();
+                    enemigo.TomarDaño(daño);
                 }
             }
         }
     }
 
-    private void TomaryHacerDaño()
+    
+    private void OnTriggerEnter2D(BoxCollider2D collision)
     {
-        vida -= daño;
- 
-        if (vida <= 0)
+        if (gameObject.CompareTag("proyectil"))
         {
-            Destroy(personaje);
+            // Verificar si el objeto con el que colisiona tiene el tag "enemigo"
+            if (collision.CompareTag("enemigo"))
+            {
+                // Intentar obtener el componente 'DañoManager' del objeto colisionado
+                VidaDaño enemigo = collision.GetComponent<VidaDaño>();
+                if (enemigo != null)
+                {
+                    // Hacer daño al enemigo
+                    enemigo.TomarDaño(daño);
+
+                    // Destruir el proyectil después de colisionar
+                    Destroy(gameObject);
+                }
+            }
         }
     }
+
+    public void TomarDaño(int daño)
+    {
+        vida -= daño;
+
+        if (vida <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+    */
 }
