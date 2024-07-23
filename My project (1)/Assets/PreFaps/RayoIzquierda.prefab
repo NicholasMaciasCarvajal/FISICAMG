@@ -190,4 +190,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positionA: {fileID: 0}
   positionB: {fileID: 0}
-  moveSpeed: 2
+  moveSpeed: 8
