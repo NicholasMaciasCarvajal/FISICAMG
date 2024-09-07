@@ -1,15 +1,15 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class Health2 : MonoBehaviour
 {
-    public int maxHealth = 6;  // 3 corazones * 2 de vida cada uno
+    public int maxHealth;  // 3 corazones * 2 de vida cada uno
     private int currentHealth;
-    [SerializeField] UIManager uIManager;
 
     void Start()
     {
         currentHealth = maxHealth;
-        uIManager.ActualizarCorazones(currentHealth);
     }
 
     public void TakeDamage(int damage, string tag)
@@ -19,11 +19,10 @@ public class Health : MonoBehaviour
             case "Player":
                 currentHealth -= damage;
                 currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-                uIManager.ActualizarCorazones(currentHealth);
                 Debug.Log("El jugador ha recibido " + damage + " puntos de daño.");
                 break;
 
-            case "Enemy":
+            case "enemigo":
                 currentHealth -= damage;
                 currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
                 Debug.Log("El enemigo ha recibido " + damage + " puntos de daño.");

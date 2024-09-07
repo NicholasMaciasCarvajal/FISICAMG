@@ -2,13 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ListaMusica : MusicadeInicio
+public class ListaMusica : MonoBehaviour
 {
     public GameObject musicPanel;
     public AudioSource[] musica;
     public int currentMusic;
-
-    public MusicadeInicio musicadeInicio;
 
     public static ListaMusica Instance { get; private set; }
 
@@ -27,6 +25,7 @@ public class ListaMusica : MusicadeInicio
     private void Start()
     {
         currentMusic = -1;
+        Time.timeScale = 1f;
     }
 
     public void EnableMusic(int index)
@@ -38,19 +37,8 @@ public class ListaMusica : MusicadeInicio
 
         StopAllMusic(); // Detener todas las canciones de este script
 
-        if (index >= 0 && index < musica.Length)
-        {
-            musica[index].Play(); // Reproducir la canción especificada
-            currentMusic = index;
-            if (musicadeInicio != null)
-            {
-                musicadeInicio.StopAllMusic();
-            }
-        }
-        else
-        {
-            Debug.LogWarning("Índice de música fuera de rango");
-        }
+        musica[index].Play(); // Reproducir la canción especificada
+        currentMusic = index;
     }
 
     private void StopAllMusic()
